@@ -1,7 +1,28 @@
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUrl,
+} from 'class-validator';
+
 export class CreateProjectDto {
-  readonly title: string;
-  readonly description: string;
-  readonly imageId: string;
-  readonly clientSiteLink: string;
-  readonly status: string;
+  @IsNotEmpty()
+  @IsString()
+  title: string;
+
+  @IsString()
+  @IsOptional()
+  description?: string;
+
+  @IsString()
+  @IsNotEmpty()
+  imageId: string;
+
+  @IsUrl()
+  @IsNotEmpty()
+  clientSiteLink: string;
+
+  @IsBoolean()
+  isShown: boolean;
 }
