@@ -1,20 +1,20 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { ProjectsModule } from './projects/projects.module';
 import { ConfigModule } from '@nestjs/config';
-import { DigitaloceanModule } from './digitalocean/digitalocean.module';
+import { MongooseModule } from '@nestjs/mongoose';
 import dotenv from 'dotenv';
+import { ProjectsModule } from './projects/projects.module';
 
 dotenv.config();
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(
-      'mongodb+srv://dariusdinu:94M2YylOYtvkHKYr@cluster.wqwqoxt.mongodb.net/digital_designer_api',
-    ),
+    ConfigModule.forRoot({
+      envFilePath: ['.env'],
+      ignoreEnvFile: false,
+      isGlobal: true,
+    }),
+    MongooseModule.forRoot(process.env.MONGO_KEY),
     ProjectsModule,
-    DigitaloceanModule,
   ],
 })
 export class AppModule {}

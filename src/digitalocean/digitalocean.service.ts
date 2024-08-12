@@ -6,17 +6,19 @@ export class DigitalOceanService {
   private s3: AWS.S3;
   constructor() {
     this.s3 = new AWS.S3({
-      endpoint: 'https://digital-designer.fra1.digitaloceanspaces.com',
-      accessKeyId: 'DO0023D6WPNRAMVMXLU6',
-      secretAccessKey: 'dmNYHLMZVsGlFimwCFu/pFEYz6EAgaeN79z9bzPJyYk',
+      endpoint: process.env.ORIGIN_ENDPOINT,
+      accessKeyId: process.env.SPACES_ACCESS_KEY,
+      secretAccessKey: process.env.SPACES_SECRET_KEY,
     });
   }
   async uploadFile(buffer: Buffer, filename: string): Promise<string> {
     const params = {
-      Bucket: 'digital-designer',
+      Bucket: process.env.BUCKET_NAME,
       Key: filename,
       Body: buffer,
+      ACL: 'public-read', // Make the file publicly accessible
     };
+    console.log(buffer, filename);
     const { Location } = await this.s3.upload(params).promise();
     return Location;
   }
