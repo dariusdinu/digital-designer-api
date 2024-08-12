@@ -6,7 +6,11 @@ import {
   Delete,
   Body,
   Param,
+  UploadedFiles,
+  UseInterceptors,
+  NotFoundException,
 } from '@nestjs/common';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import { ProjectsService } from './projects.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
@@ -41,5 +45,17 @@ export class ProjectsController {
   @Delete(':id')
   deleteProject(@Param('id') id: string) {
     return this.projectsService.delete(id);
+  }
+
+  @Post(':id/images')
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'images', maxCount: 5 }]))
+  async uploadProjectImages(
+    @Param('id') projectId: string,
+    @UploadedFiles() files: { images?: Express.Multer.File[] },
+  ) {
+    if (!files.images || files.images.length === 0) {
+      throw new NotFoundException('No images uploaded');
+    }
+    return this.projectsService.addProjectImages(projectId, files.images);
   }
 }

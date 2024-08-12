@@ -1,4 +1,5 @@
 import {
+  IsArray,
   IsBoolean,
   IsNotEmpty,
   IsOptional,
@@ -15,14 +16,18 @@ export class CreateProjectDto {
   @IsOptional()
   description?: string;
 
-  @IsString()
+  @IsArray()
   @IsNotEmpty()
-  imageId: string;
+  images?: string[];
 
   @IsUrl()
   @IsNotEmpty()
   clientSiteLink: string;
 
+  @IsString()
+  category: string;
+
   @IsBoolean()
+  @IsOptional()
   isShown: boolean;
 }

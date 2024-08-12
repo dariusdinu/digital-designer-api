@@ -1,4 +1,10 @@
-import { IsBoolean, IsOptional, IsString, IsUrl } from 'class-validator';
+import {
+  IsArray,
+  IsBoolean,
+  IsOptional,
+  IsString,
+  IsUrl,
+} from 'class-validator';
 
 export class UpdateProjectDto {
   @IsString()
@@ -9,13 +15,16 @@ export class UpdateProjectDto {
   @IsOptional()
   description?: string;
 
-  @IsString()
+  @IsArray()
   @IsOptional()
-  imageId?: string;
+  images?: string[];
 
   @IsUrl()
   @IsOptional()
   clientSiteLink?: string;
+
+  @IsString()
+  category?: string;
 
   @IsBoolean()
   @IsOptional()

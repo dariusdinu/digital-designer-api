@@ -9,11 +9,17 @@ export class Project extends Document {
   @Prop()
   description: string;
 
-  @Prop({ required: true })
-  imageId: string;
+  @Prop({ type: [String], default: [] })
+  images: string[];
 
   @Prop({ required: true })
   clientSiteLink: string;
+
+  @Prop({
+    required: true,
+    enum: ['logo', 'social', 'branding', 'advertising', 'newsletter'],
+  })
+  category: string;
 
   @Prop({ default: false })
   isShown: boolean;
