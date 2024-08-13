@@ -16,9 +16,8 @@ export class DigitalOceanService {
       Bucket: process.env.BUCKET_NAME,
       Key: filename,
       Body: buffer,
-      ACL: 'public-read', // Make the file publicly accessible
+      ACL: 'public-read',
     };
-    console.log(buffer, filename);
     const { Location } = await this.s3.upload(params).promise();
     return Location;
   }
