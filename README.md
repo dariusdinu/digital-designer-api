@@ -44,8 +44,8 @@ The website includes an admin panel for managing projects, where new projects ca
 Navigate to the server directory:
 
 ```bash
-git clone https://github.com/yourusername/mila-hayes-portfolio-server.git
-git clone https://github.com/yourusername/mila-hayes-portfolio-client.git
+git clone https://github.com/dariusdinu/digital-designer-api.git
+git clone https://github.com/dariusdinu/digital-designer-front.git
 ```
 
 ### **Backend Setup**
