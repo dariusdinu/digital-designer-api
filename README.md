@@ -1,73 +1,102 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# **Mila Hayes Portfolio Website**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## **Project Overview**
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+The Mila Hayes Portfolio Website is a digital showcase designed for Mila Hayes, a professional graphic designer. The website provides a platform for displaying a variety of design projects, including logo designs, social media graphics, and branding projects. It serves as a personal portfolio, allowing potential clients to explore Mila Hayes' work and get in touch for consultations or services.
 
-## Description
+The website includes an admin panel for managing projects, where new projects can be added, and existing ones can be updated or deleted. The design is fully responsive, offering an optimal experience on both desktop and mobile devices.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## **Features**
 
-## Installation
+- **Project Showcase**: Display a wide range of design projects in different categories.
+- **Responsive Design**: Fully responsive layout that adjusts seamlessly for mobile and desktop devices.
+- **Admin Panel**: Manage portfolio content with options to add, edit, or delete projects.
+- **Image Upload**: Upload project images directly to DigitalOcean Spaces.
+- **Category Filtering**: Filter projects by categories like Logo Design, Social Media, Branding, etc.
+- **Contact Form**: Allow potential clients to get in touch through a contact form.
 
-```bash
-$ npm install
-```
+## **Technologies Used**
 
-## Running the app
+### **Frontend:**
 
-```bash
-# development
-$ npm run start
+- **React**: A JavaScript library for building user interfaces.
+- **CSS**: Custom CSS for styling with a focus on responsiveness.
+- **React Router**: For handling routing within the application.
 
-# watch mode
-$ npm run start:dev
+### **Backend:**
 
-# production mode
-$ npm run start:prod
-```
+- **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
+- **MongoDB**: A NoSQL database for storing project information.
+- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js.
+- **DigitalOcean Spaces**: For storing and serving project images.
+- **Multer**: Middleware for handling file uploads.
 
-## Test
+## **Installation**
+
+### **Prerequisites:**
+
+- **Node.js**: Ensure you have Node.js installed. You can download it from [here](https://nodejs.org/).
+- **MongoDB**: Install MongoDB and ensure it is running on your machine. You can find installation instructions [here](https://docs.mongodb.com/manual/installation/).
+- **DigitalOcean Space**: Set up a DigitalOcean Space for storing images. You can create one [here](https://www.digitalocean.com/products/spaces/).
+
+### **Clone the Repositories:**
+
+Navigate to the server directory:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone https://github.com/yourusername/mila-hayes-portfolio-server.git
+git clone https://github.com/yourusername/mila-hayes-portfolio-client.git
 ```
 
-## Support
+### **Backend Setup**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Navigate to the server directory:
 
-## Stay in touch
+```bash
+cd path/to/server/directory
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Install dependencies:
 
-## License
+```bash
+npm install
+```
 
-Nest is [MIT licensed](LICENSE).
+Create a .env file with the following content:
+
+```bash
+PORT=3000
+MONGO_URI=mongodb://localhost:x/your-cluster
+SPACES_ACCESS_KEY=your_digitalocean_access_key
+SPACES_SECRET_KEY=your_digitalocean_secret_key
+ORIGIN_ENDPOINT=https://your-space-name.digitaloceanspaces.com
+BUCKET_NAME=your-space-name
+```
+
+Start the development server:
+
+```bash
+npm run start:dev
+```
+
+### **Backend Setup**
+
+Navigate to the client directory:
+
+```bash
+cd path/to/client/directory
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
+
+The application should now be running on http://localhost:3000.
